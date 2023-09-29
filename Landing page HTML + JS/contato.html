@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Empresa ABC</title>
+    <!-- Foi utilizado um script em java.script, para criar a condicional de escolha das cidades -->
+    <script> 
+        function escolhaCidade() {
+            var estadoSelecionado = document.getElementById('estado').value; 
+            var cidadeSelecionada = document.getElementById('cidade');
+
+           
+            // Limpar opções anteriores 
+            cidadeSelecionada.innerHTML = '';
+
+            // Adiciona novas opções com base na escolha anterior
+
+            if (estadoSelecionado ==='SP') {
+                cidadeSelecionada.innerHTML += '<option value="sao-paulo">São Paulo</option>';
+                cidadeSelecionada.innerHTML += '<option value="campinas">Campinas</option>';
+                cidadeSelecionada.innerHTML += '<option value="bauru">Bauru</option>';
+
+            } else if (estadoSelecionado ==='RJ'){
+                cidadeSelecionada.innerHTML += '<option value="rio-de-janeiro">Rio de Janeiro</option>';
+                cidadeSelecionada.innerHTML += '<option value="niteroi">Niterói</option>';
+                cidadeSelecionada.innerHTML += '<option value="marica">Maricá</option>';
+            }
+        }
+    </script>
+    <style>
+        .checkbox-wrapper {
+        display: inline-block;
+        margin-right:10px;
+        }
+
+        .caixa-mensagem {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #000;
+        padding: 10px;
+        size: 50px;
+        }    
+    </style>
+</head>
+
+<body>
+    <!-- Inicio do header -->
+    <header>
+        <section>
+            <img src="Imagens\logo.png" alt="Logo da empresa ABC " width="200px" />
+        
+            <!-- Inicio do menu do site -->
+            <nav> <!-- pesquisar para que serve esses termos nav, ul, li, a -->
+                <ul>
+                    <li>
+                        <a href="inicio.html"> início</a>
+                    </li>
+                    <li>
+                        <a href="contato.html"> Contato</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- fim do menu site -->
+        </section>
+    </header>
+    <!-- fim do header -->
+
+    <!-- início do main --> 
+    <main>
+    <!-- início da section do conteúdo do site -->
+        <section>
+        <!-- conteúdo de texto sobre o site -->
+            <article>
+                <h1>Formulário de contato</h1>
+                <p>Preencha os dados e envie sua mensagem de contato.</p>    
+                <fieldset>
+                    <legend>
+                        <h5>Dados de contato</h5>
+                    </legend> 
+                    <form id="frmInscricao" action="contato.php" method="POST">
+                        
+                        <label>Nome:</label><br>
+                        <input type="text" required="required" id="txtNome" maxlength="100" size="50"><br><br>
+                        <!-- Atividade 2: Criar opcao masculino e feminino marcando apenas uma das opcoes-->
+                        
+                        
+                        <label>Sexo:</label><br>
+                        <label> 
+                            <input type="radio" name="escolha" value="masculino">Masculino
+                        </label>    
+                        <label> 
+                            <input type="radio" name="escolha" value="feminino">Feminino
+                        </label><br><br>
+                        
+                        
+                        <!-- Atividade 3: Incluir campo para endereço -->
+
+                        <label>Endereço:</label><br>
+                        <input type="text" required="required" maxlength="100" size="50"><br><br>
+
+                        
+                        <!-- Atividade 4: Incluir um campo para a cidade similar ao do estado -->
+
+                        <label for="estado">Estado:</label><br>
+                        <select id="estado" onchange="escolhaCidade()"> 
+                           
+                            <option value="">-Selecione...-</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="SP">São Paulo</option>
+
+                        </select><br><br>
+                        
+                        <label for="cidade">Cidade:</label><br>
+                        <select id="cidade"></select><br><br>
+
+                        <!-- Atividade 5: Incluir um campo para o celular contendo placeholder -->
+
+                        <label>Celular:</label><br>
+                        <input type="text" placeholder="(##) ##### ####"><br><br>
+                    
+                        <label>E-mail:</label><br>
+                        <input type="email" required="required" size="50" id="txtEmail"><br><br>
+                    
+                        <!-- Atividade 6: completar as opções de interesse -->
+                        <div class="checkbox-wrapper">
+                            <label>Áreas de Interesse:</label><br><br>
+                            <input type="checkbox" value="JavaScript" nome="chkAreasInteresse">
+                            <label>JavaScript</label><br>
+                        </div>
+                        <div class="checkbox-wrapper">    
+                            <input type="checkbox" value="HTML" nome="chkAreasInteresse">
+                            <label>HTML</label><br>
+                        </div>
+                        <div class="checkbox-wrapper">    
+                            <input type="checkbox" value="CSS" nome="chkAreasInteresse">
+                            <label>CSS</label><br>
+                        </div><br><br>
+                        
+                        <!-- Atividade 7: Incluir um campo para mensagem -->
+
+                        <label>Mensagem:</label><br><br>
+                        <textarea maxlength="500" rows="4" cols="50"></textarea><br>
+                    
+
+                        <!-- Atividade 8: Incluir um botão para enviar o formulário -->
+
+                        <button type="submit">Enviar</button>
+
+                    </form>   
+
+
+
+            </article>
+            
+        </section>
+        <!-- Fim da section do conteúdo do site -->
+    </main>
+    <!-- Início do main -->
+    
+    <!-- Início do footer -->
+    <foorter>
+        <!-- Início das redes sociais -->
+        <ul>
+            <li>
+                <a href="https://www.instagram.com/">
+                    <img src="Imagens\logo-insta.png" alt="Instagram" />
+                </a>
+                <a href="https://www.facebook.com/">
+                    <img src="Imagens\logo-facebook.png" alt="Facebook" />
+                </a>
+                <a href="https://twitter.com/i/flow/login">
+                    <img src="Imagens\logo-twitter.png" alt="Twitter" />
+                </a>
+            </li>
+        </ul>
+        <!-- Fim das redes sociais -->
+    </foorter>
+    <!-- Fim do foorter -->
+</body>
+</html>
+
+
+
+
+
